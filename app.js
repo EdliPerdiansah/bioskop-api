@@ -20,9 +20,8 @@ app.use('/api/transactions', transactionRoutes);
 app.post('/login', (req, res) => {
     const { username, password } = req.body; // Ambil username dan password dari body
 
-    // Lakukan verifikasi kredensial (ini hanya contoh, Anda harus menggunakan database)
-    if (username === 'admin' && password === 'password') { // Ganti dengan logika autentikasi yang sesuai
-        const user = { username }; // Buat objek pengguna
+    if (username === 'admin' && password === 'password') { 
+        const user = { username }; 
         const token = jwt.sign(user, process.env.SECRET_KEY, { expiresIn: '1h' }); // Buat token
         return res.json({ token }); // Kirim token ke klien
     }
